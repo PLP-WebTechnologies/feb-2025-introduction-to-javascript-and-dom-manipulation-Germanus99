@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        #dynamic-text {
+            font-size: 24px;
+            color: #333;
+        }
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Interactive Page</h1>
+    </header>
+    
+    <main>
+        <p id="dynamic-text">This text will change dynamically.</p>
+        <button id="changeTextBtn">Change Text</button>
+        <button id="toggleElementBtn">Add/Remove Element</button>
+        <div id="extraContent" style="display: none;">
+            <p>This is an additional paragraph.</p>
+        </div>
+    </main>
+</body>
+</html>
+
+
+script.js file
+
+document.addEventListener("DOMContentLoaded", function () {
+    const textElement = document.getElementById("dynamic-text");
+    const changeTextBtn = document.getElementById("changeTextBtn");
+    const toggleElementBtn = document.getElementById("toggleElementBtn");
+    const extraContent = document.getElementById("extraContent");
+
+    // Change text dynamically
+    changeTextBtn.addEventListener("click", function () {
+        textElement.textContent = "Text has been changed!";
+        textElement.classList.toggle("highlight"); // Modify CSS
+    });
+
+    // Toggle element visibility
+    toggleElementBtn.addEventListener("click", function () {
+        if (extraContent.style.display === "none") {
+            extraContent.style.display = "block";
+        } else {
+            extraContent.style.display = "none";
+        }
+    });
+});
